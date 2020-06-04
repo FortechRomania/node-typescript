@@ -1,28 +1,17 @@
+import { app } from "firebase-admin";
 import "reflect-metadata";
+import { injectable } from "tsyringe";
+import { AuthenticationController } from "./authentication/AuthenticationController";
+import { FirebaseService } from "./firebase/FirebaseService";
+import { ExpressAdapter } from "./router/ExpressAdapter";
+import { Server } from "./server/Server";
+import { UserController } from "./user/UserController";
 
-import { default as express, Express, Router} from "express";
-import { container, injectable } from "tsyringe";
-import { ConfigService, IConfig } from "./config/ConfigService";
-import { RouterService } from "./router/RouterService";
-
+@Server({
+    adapter: ExpressAdapter,
+    controllers: [UserController, AuthenticationController]
+})
 @injectable()
-class Server {
-    private app: Express;
-    private config: IConfig;
-
-    constructor(
-        private configService: ConfigService,
-        private router: RouterService,
-    ) {
-        this.config = this.configService.getConfig();
-        this.app = express();
-        this.router.configureRoutes({app: this.app, expressRouter: Router()});
-        this.startApp();
-     }
-
-    private startApp = (): void => {
-        const { app } = this;
-        app.listen(this.config.port, () => console.info(`App started on port *:${this.config.port}`));
-    }
+export class AppServer {
+    constructor(protected firebaseService: FirebaseService) {}
 }
-container.resolve(Server);

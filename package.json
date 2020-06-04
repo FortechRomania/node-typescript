@@ -1,34 +1,48 @@
 {
-  "name": "node-ts",
-  "version": "1.0.0",
-  "description": "A simple node app using typescript",
-  "main": "server.js",
-  "scripts": {
-    "start": "tsc-watch --onSuccess \"node ./build/server.js\" --onFailure \"echo Compilation Failed\" --compiler typescript/bin/tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/emanuelmustea/node-ts.git"
-  },
-  "keywords": [
-    "node",
-    "typescript"
-  ],
-  "author": "Emanuel Mustea",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/emanuelmustea/node-ts/issues"
-  },
-  "homepage": "https://github.com/emanuelmustea/node-ts#readme",
-  "devDependencies": {
-    "@types/express": "^4.17.0",
-    "tsc-watch": "^2.2.1",
-    "tslint": "^5.18.0",
-    "typescript": "^3.5.2"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "reflect-metadata": "^0.1.13",
-    "tsyringe": "^3.2.0"
-  }
+    "name": "node-ts",
+    "version": "1.0.0",
+    "description": "A simple node app using typescript",
+    "main": "server.js",
+    "scripts": {
+        "start": "tsc-watch --onSuccess \"node ./build/server.js\" --onFailure \"echo Compilation Failed\" --compiler typescript/bin/tsc",
+        "build": "tsc",
+        "test": "echo 'No test found'",
+        "prod": "node ./build/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/emanuelmustea/node-ts.git"
+    },
+    "keywords": [
+        "node",
+        "typescript"
+    ],
+    "author": "Emanuel Mustea",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/emanuelmustea/node-ts/issues"
+    },
+    "homepage": "https://github.com/emanuelmustea/node-ts#readme",
+    "devDependencies": {
+        "@types/bcrypt": "^3.0.0",
+        "@types/express": "^4.17.0",
+        "tsc-watch": "^2.2.1",
+        "tslint": "^5.18.0",
+        "typescript": "^3.5.2"
+    },
+    "dependencies": {
+        "bcrypt": "^4.0.1",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "firebase-admin": "^8.9.2",
+        "jose": "^1.25.0",
+        "reflect-metadata": "^0.1.13",
+        "tsyringe": "^3.2.0",
+        "url-join": "^4.0.1"
+    },
+    "prettier": {
+        "printWidth": 120,
+        "tabWidth": 4,
+        "singleQuote": false
+    }
 }

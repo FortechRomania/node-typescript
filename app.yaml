@@ -1,0 +1,8 @@
+runtime: nodejs10
+
+instance_class: F1
+
+entrypoint: npm run prod
+
+env_variables:
+    environment: PRODUCTION

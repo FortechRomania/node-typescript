@@ -1,0 +1,3 @@
+// fill the data here with your credentials from google cloud Admin API
+// This key is not required when using firebase on a deployed version, and environment = DEVELOPMENT
+// Otherwise, all endpoints will throw 500
